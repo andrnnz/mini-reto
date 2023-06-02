@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FileUpload.css';
 
 
 const FileUploadComponent = () => {
@@ -15,7 +16,7 @@ const FileUploadComponent = () => {
       formData.append('archivos', selectedFile);
 
       try {
-        const response = await fetch('/files', {
+        const response = await fetch('/archivos', {
           method: 'POST',
           body: formData,
         });
@@ -36,7 +37,7 @@ const FileUploadComponent = () => {
   return (
     <div>
       <input type="file" onChange={handleFileChange} />
-      <button onClick={handleUpload}>Subir archivo</button>
+      <button className="btn-subir" onClick={handleUpload}>Subir archivo</button>
       {uploadStatus && <p>{uploadStatus}</p>}
     </div>
   );
